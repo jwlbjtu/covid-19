@@ -1,0 +1,129 @@
+import React from "react";
+import ReactEcharts from "echarts-for-react";
+import dailyData from "../data/nyc/nyc-daily.json";
+import { Paper, Chip, makeStyles, Theme, createStyles } from "@material-ui/core";
+import ErrorOutlineIcon from '@material-ui/icons/ErrorOutline';
+import {Constants} from "../constants";
+
+let dates: string[] = [];
+let cases: number[] = [];
+let hosp: number[] = [];
+let deaths: number[] = [];
+
+dailyData.forEach(item => {
+    dates.push(item[0]);
+    cases.push(item[1] !== "" ? parseInt(item[1]) : 0);
+    hosp.push(item[2] !== "" ? parseInt(item[2]) : 0);
+    deaths.push(item[3] !== "" ? parseInt(item[3]) : 0);
+})
+
+const getOptions = () => ({
+    title: {
+        text: "Daily Count",
+        subtext: "Number of increases everyday"
+    },
+    tooltip: {
+        trigger: "axis"
+    },
+    legend: {
+        data: ["Cases", "Hospitolized", "Deaths"],
+        icon: "roundRect"
+    },
+    grid: {
+        left: "3%",
+        right: "4%",
+        bottom: "3%",
+        containLabel: true
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: "category",
+        boundaryGap: false,
+        data: dates
+    },
+    yAxis: {
+        type: "value"
+    },
+    series: [
+        {
+            name: "Cases",
+            type: "line",
+            smooth: true,
+            lineStyle: {
+                color: Constants.casesColor
+            },
+            itemStyle: {
+                color: Constants.casesColor
+            },
+            data: cases
+        },
+        {
+            name: "Hospitolized",
+            type: "line",
+            smooth: true,
+            lineStyle: {
+                color: Constants.hospColor
+            },
+            itemStyle: {
+                color: Constants.hospColor
+            },
+            data: hosp
+        },
+        {
+            name: "Deaths",
+            type: "line",
+            smooth: true,
+            lineStyle: {
+                color: Constants.deathsColor
+            },
+            itemStyle: {
+                color: Constants.deathsColor
+            },
+            data: deaths
+        }
+    ]
+});
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            marginTop: 50
+        },
+        chip_container: {
+            textAlign: "end"
+        },
+        chart: {
+            marginTop: 5, 
+            padding: 20
+        }
+    })
+);
+
+const TimeSeriesChart = () => {
+    const classes = useStyles();
+
+    return(        
+        <div className={classes.root}>
+            <div className={classes.chip_container}>
+                <Chip
+                    color="default" 
+                    icon={<ErrorOutlineIcon />} 
+                    size="small"
+                    label="Due to delays in reporting,
+                    recent data are incomplete."
+                />
+            </div>
+            <Paper variant="outlined" className={classes.chart}>
+                <ReactEcharts 
+                    option={getOptions()}
+                />
+            </Paper>
+        </div>
+    )
+}
+
+export default TimeSeriesChart;
