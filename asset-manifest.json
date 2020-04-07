@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/jwlbjtu/covid-19.git/static/css/main.5f361e03.chunk.css",
+    "main.js": "/jwlbjtu/covid-19.git/static/js/main.444217cd.chunk.js",
+    "main.js.map": "/jwlbjtu/covid-19.git/static/js/main.444217cd.chunk.js.map",
+    "runtime-main.js": "/jwlbjtu/covid-19.git/static/js/runtime-main.083a3655.js",
+    "runtime-main.js.map": "/jwlbjtu/covid-19.git/static/js/runtime-main.083a3655.js.map",
+    "static/js/2.30ec0dc5.chunk.js": "/jwlbjtu/covid-19.git/static/js/2.30ec0dc5.chunk.js",
+    "static/js/2.30ec0dc5.chunk.js.map": "/jwlbjtu/covid-19.git/static/js/2.30ec0dc5.chunk.js.map",
+    "index.html": "/jwlbjtu/covid-19.git/index.html",
+    "precache-manifest.88e3ffc6da6b1d52bf792c67d9957e12.js": "/jwlbjtu/covid-19.git/precache-manifest.88e3ffc6da6b1d52bf792c67d9957e12.js",
+    "service-worker.js": "/jwlbjtu/covid-19.git/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/jwlbjtu/covid-19.git/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.30ec0dc5.chunk.js.LICENSE.txt": "/jwlbjtu/covid-19.git/static/js/2.30ec0dc5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.083a3655.js",
+    "static/js/2.30ec0dc5.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.444217cd.chunk.js"
+  ]
+}
