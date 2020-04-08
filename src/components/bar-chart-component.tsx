@@ -6,10 +6,10 @@ import Boro from "./boro-component";
 const BarCharts = () => {
     return(
         <Grid container spacing={1} style={{marginTop: 3}}>
-            <Grid item sm={5}>                        
+            <Grid item xs={12} sm={12} md={5}>                        
                 <CompareChart />
             </Grid>
-            <Grid item sm={7}>
+            <Grid item xs={12} sm={12} md={7}>
                 <Boro />
             </Grid>
         </Grid>  

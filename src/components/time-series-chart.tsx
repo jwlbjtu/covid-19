@@ -26,19 +26,15 @@ const getOptions = () => ({
         trigger: "axis"
     },
     legend: {
-        data: ["Cases", "Hospitolized", "Deaths"],
-        icon: "roundRect"
+        data: ["Cases", "Hospitalized", "Deaths"],
+        icon: "roundRect",
+        right: "3%"
     },
     grid: {
         left: "3%",
         right: "4%",
         bottom: "3%",
         containLabel: true
-    },
-    toolbox: {
-        feature: {
-            saveAsImage: {}
-        }
     },
     xAxis: {
         type: "category",
@@ -62,7 +58,7 @@ const getOptions = () => ({
             data: cases
         },
         {
-            name: "Hospitolized",
+            name: "Hospitalized",
             type: "line",
             smooth: true,
             lineStyle: {
@@ -110,11 +106,12 @@ const TimeSeriesChart = () => {
         <div className={classes.root}>
             <div className={classes.chip_container}>
                 <Chip
-                    color="default" 
+                    color="secondary" 
+                    variant="outlined"
                     icon={<ErrorOutlineIcon />} 
                     size="small"
                     label="Due to delays in reporting,
-                    recent data are incomplete."
+                    data of recent days are incomplete."
                 />
             </div>
             <Paper variant="outlined" className={classes.chart}>

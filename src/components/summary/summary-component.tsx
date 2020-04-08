@@ -27,6 +27,9 @@ const Summary: React.FC<summaryProps> = (props) => {
             <CardComponent 
                 title="TOTAL CASES"
                 number={cases}
+                rate={"+ 5825"}
+                rateText={" cases"}
+                rateColor={Constants.pinkColor}
             />
             <CardComponent 
                 title="HOSPITALIZED"
