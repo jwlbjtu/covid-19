@@ -28,9 +28,10 @@ const getOptions = () => ({
     legend: {
         data: ["Cases", "Hospitalized", "Deaths"],
         icon: "roundRect",
-        right: "3%"
+        left: "65%"
     },
     grid: {
+        top: "25%",
         left: "3%",
         right: "4%",
         bottom: "3%",
@@ -111,7 +112,7 @@ const TimeSeriesChart = () => {
                     icon={<ErrorOutlineIcon />} 
                     size="small"
                     label="Due to delays in reporting,
-                    data of recent days are incomplete."
+                    recent data are incomplete."
                 />
             </div>
             <Paper variant="outlined" className={classes.chart}>

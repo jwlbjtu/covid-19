@@ -12,7 +12,8 @@ import {
     Typography,
     IconButton,
     TablePagination,
-    TableContainer } from "@material-ui/core";
+    TableContainer, 
+    Grid} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import CancelIcon from '@material-ui/icons/Cancel';
 import zcTestData from "../data/nyc/zcTest.json";
@@ -39,25 +40,29 @@ const EnhancedTableToolbar = (props: toolbarProps) => {
     }
 
     return(
-        <Toolbar>
-            <Typography variant="h6" component="div" style={{flex: '1 1 90%'}}>
-                <strong>{props.title}</strong>
-            </Typography>
-            <TextField 
-                value={props.search}
-                onChange={props.onSearchChange}
-                id="input-search"
-                placeholder={props.placeholder}
-                InputProps={{
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <SearchIcon />
-                        </InputAdornment>
-                    ),
-                    endAdornment: cancelIcon
-                }}
-            />
-        </Toolbar>
+        <Grid container>  
+            <Grid item xs={12} sm={7}>
+                <Typography variant="h6" component="div" style={{flex: '1 1 90%'}}>
+                    <strong>{props.title}</strong>
+                </Typography>
+            </Grid>
+            <Grid item xs={12} sm={5} component="div" style={{textAlign: "right"}}>
+                <TextField 
+                    value={props.search}
+                    onChange={props.onSearchChange}
+                    id="input-search"
+                    placeholder={props.placeholder}
+                    InputProps={{
+                        startAdornment: (
+                            <InputAdornment position="start">
+                                <SearchIcon />
+                            </InputAdornment>
+                        ),
+                        endAdornment: cancelIcon
+                    }}
+                />
+            </Grid>
+        </Grid>
     )
 }
 

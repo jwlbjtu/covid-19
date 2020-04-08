@@ -11,7 +11,7 @@ const getOption = () => ({
     },
     legend: {
         data: ["Female", "Male"],
-        right: "5%"
+        left: "73%"
     },
     grid: {
         left: "3%",
