@@ -8,7 +8,6 @@ import {
     TableHead, 
     TableCell, 
     TableBody, 
-    Toolbar, 
     Typography,
     IconButton,
     TablePagination,
@@ -100,7 +99,7 @@ const ZCTest = () => {
     return(
         <Paper variant="outlined" style={{ marginTop: 10, padding: 30}}>
             <EnhancedTableToolbar 
-                title={"Test Data by Zip Code"}
+                title={"Daily Tested Cases by Zip Code"}
                 search={search}
                 onSearchChange={onSearchChange}
                 placeholder={"Enter Zip Code"}

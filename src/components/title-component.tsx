@@ -34,7 +34,7 @@ const TitleComponent: React.FC<titleProps> = (props) => {
     const classes = useStyles();
     return(
         <Grid container spacing={4} className={classes.root}>
-            <Grid item xs={9} className={classes.title}>
+            <Grid item xs={12} sm={9} className={classes.title}>
                 <Typography variant="h5">
                     Dashboard of the COVID-19 Virus Outbreak in {props.name}
                 </Typography>
@@ -48,7 +48,7 @@ const TitleComponent: React.FC<titleProps> = (props) => {
                     clickable
                 />
             </Grid>
-            <Grid item>
+            <Grid item xs={12} sm={3}>
                 <Paper variant="outlined" className={classes.date}>
                     <Typography variant="subtitle1">
                         Last updated at:

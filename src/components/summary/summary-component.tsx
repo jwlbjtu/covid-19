@@ -6,13 +6,14 @@ import {Constants} from "../../constants";
 type summaryProps = {
     summaryData: {
         cases: string,
+        increase: string,
         hospitalized: string,
         deaths: string
     }
 }
 
 const Summary: React.FC<summaryProps> = (props) => {
-    const {cases, hospitalized, deaths} = props.summaryData;
+    const {cases, increase, hospitalized, deaths} = props.summaryData;
 
     const computeRate = (total: number, number: number):string => {
         const percentage = (number / total) * 100;
@@ -22,14 +23,22 @@ const Summary: React.FC<summaryProps> = (props) => {
     const hRate = computeRate(parseFloat(cases), parseFloat(hospitalized));
     const dRate = computeRate(parseFloat(cases), parseFloat(deaths));
 
+    const increaseNum = parseInt(increase);
+    let increaseResult = "0";
+    if(increaseNum > 0) {
+        increaseResult = `+ ${increaseNum}`;
+    } else if(increaseNum < 0) {
+        increaseResult = `- ${increaseNum}`;
+    }
+
     return(
         <Grid container spacing={6}>
             <CardComponent 
                 title="TOTAL CASES"
                 number={cases}
-                rate={"+ 5825"}
+                rate={increaseResult}
                 rateText={" cases"}
-                rateColor={Constants.pinkColor}
+                rateColor={parseInt(increase) > 0 ? Constants.pinkColor : Constants.greenColor}
             />
             <CardComponent 
                 title="HOSPITALIZED"

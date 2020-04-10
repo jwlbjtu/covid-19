@@ -3,4 +3,5 @@ export class Constants {
     static hospColor = "#fec85e";
     static deathsColor = "#C12626";
     static pinkColor = "#f77eb9";
+    static greenColor = "#41B3A3";
 }
