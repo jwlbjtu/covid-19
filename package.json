@@ -2,6 +2,10 @@
   "name": "covid-19",
   "version": "1.0.0",
   "description": "Covid-19 Tracker for NYC",
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.13.1"
+},
   "scripts": {
     "client": "cd client && npm start",
     "server": "nodemon server.js",
