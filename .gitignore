@@ -1,6 +1,7 @@
 /node_modules
 client/node_modules
 ./vscode
+/firebase
 
 .DS_Store
 .env.local
