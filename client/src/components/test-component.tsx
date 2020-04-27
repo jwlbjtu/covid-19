@@ -16,6 +16,7 @@ import {
 import SearchIcon from '@material-ui/icons/Search';
 import CancelIcon from '@material-ui/icons/Cancel';
 import zcTestData from "../data/nyc/zcTest.json";
+import { TestingProps } from "../types/covid19";
 
 interface toolbarProps {
     title: string;
@@ -65,7 +66,7 @@ const EnhancedTableToolbar = (props: toolbarProps) => {
     )
 }
 
-const ZCTest = () => {
+const ZCTest: React.FC<TestingProps> = ({ testingData }) => {
 
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(0);

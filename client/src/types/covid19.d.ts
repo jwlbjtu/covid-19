@@ -30,5 +30,51 @@ export type FormatterParams = {
     dimensionIndex: number,
     // Color of data
     color: string,
+};
 
-}
+export type AppData = {
+    summary: SummaryData,
+    dailyData: string[][],
+    genderData: GenderData,
+    boroData: string[][],
+    testingData: string[][]
+};
+
+export type SummaryProps = {
+    summaryData: SummaryData
+};
+
+export type TimeSeriesProps = {
+    dailyData: string[][]
+};
+
+export type CompareChartProps = {
+    genderData: GenderData
+};
+
+export type BoroProps = {
+    boroData: string[][]
+};
+
+export type BarChartProps = {
+    genderData: GenderData,
+    boroData: string[][]
+};
+
+export type TestingProps = {
+    testingData: string[][]
+};
+
+export type SummaryData = {
+    cases: string,
+    increase: string,
+    hospitalized: string,
+    deaths: string,
+    lastUpdated: string
+};
+
+export type GenderData = {
+    cases: number[],
+    hospitalized: number[],
+    death: number[]
+};

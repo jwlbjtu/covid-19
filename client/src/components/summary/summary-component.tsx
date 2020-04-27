@@ -2,17 +2,9 @@ import React from "react";
 import CardComponent from "../card-component";
 import { Grid } from "@material-ui/core";
 import {Constants, formatNum} from "../../constants";
+import { SummaryProps } from "../../types/covid19"; 
 
-type summaryProps = {
-    summaryData: {
-        cases: string,
-        increase: string,
-        hospitalized: string,
-        deaths: string
-    }
-}
-
-const Summary: React.FC<summaryProps> = (props) => {
+const Summary: React.FC<SummaryProps> = (props) => {
     const {cases, increase, hospitalized, deaths} = props.summaryData;
     
     const computeRate = (total: number, number: number):string => {
