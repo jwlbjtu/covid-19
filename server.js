@@ -28,6 +28,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
+// API calls
+app.get('/data', (req, res) => {
+    let dataRef = db.collection("covid19Data");
+    dataRef.get()
+    .then(snapshot => {
+        let result = {};
+        snapshot.forEach(doc => {
+            console.log(doc.id, "=>", doc.data());
+            result[doc.id] = doc.data();
+        });
+        res.status(200).send(result);
+    })
+    .catch(error => {
+        console.log("Error getting documents", error);
+        res.status(500).send("Failed to get data!");
+    });
+});
+
+// React Routing
 if(process.env.NODE_ENV === "production") {
     app.use(enforce.HTTPS({ trustProtoHeader: true }));
     app.use(express.static(path.join(__dirname, 'client/build')));
@@ -44,21 +63,4 @@ app.listen(port, error => {
 
 app.get('./service-worker.js', (req, res) => {
     res.sendFile(path.resolve(__dirname, '..', 'build', 'service-worker.js'));
-});
-
-app.get('/data', (req, res) => {
-    let dataRef = db.collection("covid19Data");
-    dataRef.get()
-    .then(snapshot => {
-        let result = {};
-        snapshot.forEach(doc => {
-            console.log(doc.id, "=>", doc.data());
-            result[doc.id] = doc.data();
-        });
-        res.status(200).send(result);
-    })
-    .catch(error => {
-        console.log("Error getting documents", error);
-        res.status(500).send("Failed to get data!");
-    });
 });
