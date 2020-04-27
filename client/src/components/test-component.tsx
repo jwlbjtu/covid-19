@@ -15,7 +15,6 @@ import {
     Grid} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import CancelIcon from '@material-ui/icons/Cancel';
-import zcTestData from "../data/nyc/zcTest.json";
 import { TestingProps } from "../types/covid19";
 
 interface toolbarProps {
@@ -71,11 +70,11 @@ const ZCTest: React.FC<TestingProps> = ({ testingData }) => {
     const [search, setSearch] = useState("");
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
-    const [results, setResults] = React.useState(zcTestData);
+    const [results, setResults] = React.useState(testingData);
 
     const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let search = e.target ? e.target.value : "";
-        let searchResults = zcTestData.filter(item => !search || item[0].indexOf(search) >= 0);
+        let searchResults = testingData.filter(item => !search || item[0].indexOf(search) >= 0);
         setSearch(search);
         setResults(searchResults);
         setPage(0);
@@ -83,7 +82,7 @@ const ZCTest: React.FC<TestingProps> = ({ testingData }) => {
 
     const onDoneClicked = () => {
         setSearch("");
-        setResults(zcTestData);
+        setResults(testingData);
     }
 
     const handleChangePage = (event: unknown, newPage: number) => {
