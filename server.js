@@ -35,7 +35,7 @@ app.get('/data', (req, res) => {
     .then(snapshot => {
         let result = {};
         snapshot.forEach(doc => {
-            console.log(doc.id, "=>", doc.data());
+            //console.log(doc.id, "=>", doc.data());
             result[doc.id] = doc.data();
         });
         res.status(200).send(result);
